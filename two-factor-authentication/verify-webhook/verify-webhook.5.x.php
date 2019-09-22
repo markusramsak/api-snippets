@@ -12,7 +12,7 @@ function verifyWebhook($apiKey) {
     $nonce = $_SERVER['HTTP_X_AUTHY_SIGNATURE_NONCE'];
     $method = $_SERVER['REQUEST_METHOD'];
     $proto = isset($_SERVER['HTTPS']) ? "https" : "http";
-    $url = "{$proto}://{$_SERVER[HTTP_HOST]}{$_SERVER[REQUEST_URI]}";
+    $url = "{$proto}://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
 
     // get the Json string sent by Authy
     $json = file_get_contents('php://input');
